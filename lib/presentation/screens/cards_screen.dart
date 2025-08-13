@@ -35,17 +35,27 @@ class _CardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
 
-      child: Column(
-        children: [
-          ...cards.map((e)=>(
-            CardMapped(elevation: e['elevation'],label:e['label'])
-          )),
-           ...cards.map((e)=>(
-            CardMapped2(elevation: e['elevation'],label:e['label'])
-          ))
-        ],
+      child: SafeArea(
+        child: Column(
+          children: [
+            // ...cards.map((e)=>(
+            //   CardMapped(elevation: e['elevation'],label:e['label'])
+            // )),
+            //  ...cards.map((e)=>(
+            //   CardMapped2(elevation: e['elevation'],label:e['label'])
+            // )),
+            // ...cards.map((e)=>(
+            //   CardMapped3(elevation: e['elevation'],label:e['label'])
+            // )),
+             ...cards.map((e)=>(
+              CardMapped4(elevation: e['elevation'],label:e['label'])
+            )),
+            const SizedBox(height: 30,)
+          ],
+        ),
       ),
     );
   }
@@ -78,7 +88,8 @@ class CardMapped extends StatelessWidget {
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(label),
-            )
+            ),
+            
           ],
         ),
       ),
@@ -119,8 +130,9 @@ class CardMapped2 extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomLeft,
-              child: Text(label),
-            )
+              child: Text('$label - outlined'),
+            ),
+            const SizedBox(height: 50,)
           ],
         ),
       ),
@@ -128,5 +140,89 @@ class CardMapped2 extends StatelessWidget {
   }
 }
 
+
+class CardMapped3 extends StatelessWidget {
+  final String label;
+  final double elevation;
+  const CardMapped3({
+    super.key, 
+    required this.label, 
+    required this.elevation
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final colors=Theme.of(context).colorScheme;
+    return Card(
+      color: colors.surfaceContainerHighest,
+      elevation: elevation,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: (){},
+                icon:Icon(Icons.more_vert_outlined)
+                )
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text('$label - filled'),
+            ),
+            
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class CardMapped4 extends StatelessWidget {
+  final String label;
+  final double elevation;
+  const CardMapped4({
+    super.key, 
+    required this.label, 
+    required this.elevation
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final colors=Theme.of(context).colorScheme;
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      color: colors.surfaceContainerHighest,
+      elevation: elevation,
+      child: Stack(
+        children: [
+          Image.network(
+            'https://picsum.photos/id/${elevation.toInt()}/600/350',
+            height: 350,
+            fit: BoxFit.cover,
+             
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20))
+              ),
+              child: IconButton(
+                onPressed: (){},
+                icon:Icon(Icons.more_vert_outlined)
+                ),
+            )
+          ),
+          
+          
+        ],
+      ),
+    );
+  }
+}
 
 
