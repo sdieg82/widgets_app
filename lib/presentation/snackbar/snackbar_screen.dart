@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SnackbarScreen extends StatelessWidget {
   
@@ -10,6 +11,8 @@ class SnackbarScreen extends StatelessWidget {
       duration: Duration(seconds: 2),
     ));
   }
+
+  
 
 
   static const name='snackbar_screen';
@@ -40,6 +43,42 @@ class _ViewSnackbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+
+    void openDialogo(BuildContext context){
+      showDialog(
+        barrierDismissible: false,
+        context: context, 
+        builder: (context) => AlertDialog(
+          title: Text('Estás seguro ?'),
+          content: Text('Hola'),
+          actions: [
+            TextButton(onPressed: () => context.pop(), child:Text('Cancelar')),
+            FilledButton(onPressed:() => context.pop(), child:Text('Aceptar')),
+          ],
+        ),
+    );
+  }
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FilledButton.tonal(onPressed: (){
+            showAboutDialog(
+              context: context, 
+              children: [
+                const Text('Eu deserunt consectetur dolore consectetur nisi amet cupidatat occaecat ex fugiat. Consectetur in sint officia amet nostrud. Non est officia est duis laboris do adipisicing voluptate voluptate nostrud excepteur sit. Officia amet commodo proident nisi dolore non incididunt esse deserunt. Duis sint tempor pariatur tempor laborum nisi eiusmod. Enim ipsum consectetur excepteur ea consectetur.')
+              ]
+            );
+          }, child: Text('Licencias used')),
+          FilledButton(
+            onPressed: () => {
+              openDialogo(context)
+            }, 
+            child: const Text('Mostrar diálogo'))
+        ],
+      ),
+      
+    );
   }
 }
