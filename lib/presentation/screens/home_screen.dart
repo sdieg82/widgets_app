@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _HomeView extends StatelessWidget {
+class  _HomeView extends StatelessWidget {
   const _HomeView();
 
   @override
