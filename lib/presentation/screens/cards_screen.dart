@@ -41,18 +41,18 @@ class _CardsView extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-            // ...cards.map((e)=>(
-            //   CardMapped(elevation: e['elevation'],label:e['label'])
-            // )),
-            //  ...cards.map((e)=>(
-            //   CardMapped2(elevation: e['elevation'],label:e['label'])
-            // )),
-            // ...cards.map((e)=>(
-            //   CardMapped3(elevation: e['elevation'],label:e['label'])
-            // )),
-             ...cards.map((e)=>(
-              CardMapped4(elevation: e['elevation'],label:e['label'])
+            ...cards.map((e)=>(
+              CardMapped(elevation: e['elevation'],label:e['label'])
             )),
+             ...cards.map((e)=>(
+              CardMapped2(elevation: e['elevation'],label:e['label'])
+            )),
+            ...cards.map((e)=>(
+              CardMapped3(elevation: e['elevation'],label:e['label'])
+            )),
+            //  ...cards.map((e)=>(
+            //   CardMapped4(elevation: e['elevation'],label:e['label'])
+            // )),
             const SizedBox(height: 30,)
           ],
         ),
