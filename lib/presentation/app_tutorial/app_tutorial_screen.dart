@@ -6,6 +6,22 @@ class AppTutorialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Tutorial'),
+      ),
+      body: _AppTutorialView(),
+    );
+  }
+}
+
+class _AppTutorialView extends StatelessWidget {
+  const _AppTutorialView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Placeholder();
   }
 }
