@@ -10,7 +10,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    final scaffoldKey=GlobalKey<ScaffoldState>( );
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(title: Text('Flutter + material 3')),
       body: _HomeView(),
        bottomNavigationBar: BottomNavigationBar(
@@ -29,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.settings_outlined),
           ),
         ] ),
-        drawer: SideMenu()
+        drawer: SideMenu(scaffoldKey: scaffoldKey,)
     );
   }
 }
