@@ -23,9 +23,7 @@ class ButtonsScreen extends StatelessWidget {
 }
 
 class _Buttons_view extends StatelessWidget {
-  const _Buttons_view({
-    super.key,
-  });
+  const _Buttons_view();
 
   @override
   Widget build(BuildContext context) {

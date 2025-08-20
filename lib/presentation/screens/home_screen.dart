@@ -32,7 +32,7 @@ class  _HomeView extends StatelessWidget {
 }
 
 class _CustomListTile extends StatelessWidget {
-  const _CustomListTile({super.key, required this.menuItems});
+  const _CustomListTile({required this.menuItems});
 
   final MenuItem menuItems;
 

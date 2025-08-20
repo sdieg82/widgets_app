@@ -37,9 +37,7 @@ class SnackbarScreen extends StatelessWidget {
 }
 
 class _ViewSnackbar extends StatelessWidget {
-  const _ViewSnackbar({
-    super.key,
-  });
+  const _ViewSnackbar();
 
   @override
   Widget build(BuildContext context) {
