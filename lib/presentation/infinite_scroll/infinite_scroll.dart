@@ -84,6 +84,7 @@ class _InfiniteScrollState extends State<InfiniteScroll> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     
       backgroundColor: Colors.black,
       // appBar: AppBar(
       //   title: Text('Infinite scroll'),

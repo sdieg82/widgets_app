@@ -12,6 +12,22 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter + material 3')),
       body: _HomeView(),
+       bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home_outlined),
+            
+          ),
+          BottomNavigationBarItem(
+            label: 'Progress',
+            icon: Icon(Icons.refresh_rounded),
+          ),
+          BottomNavigationBarItem(
+            label: 'Settings',
+            icon: Icon(Icons.settings_outlined),
+          ),
+        ] ),
     );
   }
 }
