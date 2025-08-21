@@ -9,6 +9,7 @@ const colorList=<Color>[
 ];
 
 class AppTheme {
+  bool isDarkMode=false;
   final int selectedColor;
   
   AppTheme({
@@ -17,7 +18,7 @@ class AppTheme {
     selectedColor>=0 && selectedColor <= colorList.length
   );
 ThemeData getTheme()=>ThemeData(
-  //  brightness: Brightness.dark,
+   brightness: isDarkMode? Brightness.light : Brightness.dark,
    useMaterial3: true,
    colorSchemeSeed: colorList[selectedColor],
    appBarTheme: const AppBarTheme(

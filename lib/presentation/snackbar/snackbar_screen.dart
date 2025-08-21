@@ -12,8 +12,6 @@ class SnackbarScreen extends StatelessWidget {
     ));
   }
 
-  
-
 
   static const name='snackbar_screen';
   const SnackbarScreen({super.key});

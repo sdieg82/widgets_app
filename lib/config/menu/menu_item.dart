@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/presentation/screens/counter.dart';
 
 class MenuItem {
   final String title;
@@ -16,6 +17,18 @@ class MenuItem {
 
 const appMenuItems=<MenuItem>[
    
+   MenuItem(
+    title:'Theme options',
+    subTitle: 'Opciones de tema',
+    link:'/theme',
+    icon:Icons.palette_outlined
+   ),
+   MenuItem(
+    title:'Counter',
+    subTitle: 'Contador',
+    link:'/counter',
+    icon:Icons.add_outlined
+   ),
    MenuItem(
     title:'Botones',
     subTitle: 'Varios botones en flutter',
