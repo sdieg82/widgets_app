@@ -9,16 +9,17 @@ const colorList=<Color>[
 ];
 
 class AppTheme {
-  bool isDarkMode=false;
+  final bool isDarkMode;
   final int selectedColor;
   
   AppTheme({
-    this.selectedColor=0
+    this.selectedColor=0,
+    this.isDarkMode=true,
   }):assert(
     selectedColor>=0 && selectedColor <= colorList.length
   );
 ThemeData getTheme()=>ThemeData(
-   brightness: isDarkMode? Brightness.light : Brightness.dark,
+   brightness: isDarkMode? Brightness.dark : Brightness.light,
    useMaterial3: true,
    colorSchemeSeed: colorList[selectedColor],
    appBarTheme: const AppBarTheme(

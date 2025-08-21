@@ -58,7 +58,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/theme',
-      name:ThemeScreen().name,
+      name:ThemeScreen.name,
       builder: (context, state) => ThemeScreen(),
     ),
   ],

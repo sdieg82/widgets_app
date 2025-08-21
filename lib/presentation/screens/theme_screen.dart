@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:widgets_app/presentation/providers/theme_provider.dart';
 
 class ThemeScreen extends ConsumerWidget {
-  final String name='theme_screen';
+  static const String name = 'theme_screen';
   const ThemeScreen({super.key});
 
   @override
@@ -15,7 +15,7 @@ class ThemeScreen extends ConsumerWidget {
         actions: [
            IconButton(
           onPressed: () {
-            ref.read(isDarkModeProvider.notifier).state=!isDarkMode;
+            ref.read(isDarkModeProvider.notifier).update((state)=> state=! state);
           }, 
         // icon: Icon(Icons.dark_mode_outlined),
         icon: Icon(isDarkMode? Icons.dark_mode_outlined: Icons.light_mode_outlined),
@@ -35,19 +35,20 @@ class _ViewThemesList extends ConsumerWidget {
   @override
   Widget build(BuildContext context,ref) {
   final List<Color> colorList =ref.watch(colorListProvider);
+  final bool isDarkMode =ref.watch(isDarkModeProvider);
+  final int selectedColor=ref.watch(selectedColorProvider);
     return ListView.builder(
       itemCount: colorList.length,
       itemBuilder:(context, index) {
         final color=colorList[index];
         return RadioListTile(
           title: Text('Este color', style: TextStyle(color: color),),
-          subtitle: Text('${color.value}'),
+          subtitle: Text('${color.r}'),
           value: index,
-          groupValue: 1,
+          groupValue: selectedColor,
+          activeColor: color,
           onChanged: (value) {
-            //TODO notificar el cambio 
-            ref.read(isDarkModeProvider.notifier).state=!ref.read(isDarkModeProvider);
-          
+            ref.read(selectedColorProvider.notifier).state = value!;
           },
         );
       },
